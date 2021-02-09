@@ -214,6 +214,22 @@ function btnReinicio() {
     location.reload();
 }
 
+//Comienza un juego Random
+let ran = document.getElementById('btnRandom');
+    ran.addEventListener('click',btRandom)
+    function btRandom() {
+    for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < cols; j++) {
+            let eVivo = Math.round(Math.random());
+            if ( eVivo == 1) {
+                let celula = document.getElementById(i + "_" + j)
+                celula.setAttribute("class", "vivo");
+                aGen[i][j] = 1;
+            }
+        }
+    }
+}
+
 //Visualizacion de la Tabla y de las Generaciones
 window.onload=()=>{
     World();
